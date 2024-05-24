@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://bf212syf723j4"]
+
+[ext_resource type="Script" path="res://Scripts/Player/Model/Player.cs" id="1_4wy47"]
+[ext_resource type="Script" path="res://Scripts/Player/View/PlayerAnimation.cs" id="2_2fw0d"]
+[ext_resource type="Script" path="res://Scripts/Player/Controller/PlayerInputHandler.cs" id="3_00uuw"]
+[ext_resource type="SpriteFrames" uid="uid://3dcis2t5gbjt" path="res://Animation/PlayerAnimations.tres" id="3_7if2a"]
+[ext_resource type="Script" path="res://Scripts/Player/Model/PlayerMovement.cs" id="5_ib1st"]
+[ext_resource type="PackedScene" uid="uid://bai5bdnmgxcfw" path="res://Prefabs/HurtBoxPrefab.tscn" id="6_eae27"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_glkr3"]
+radius = 4.0
+
+[node name="PlayerPrefab" type="CharacterBody2D"]
+z_index = 1
+y_sort_enabled = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("3_7if2a")
+animation = &"WALKING_LEFT"
+
+[node name="Node - Input Handler" type="Node" parent="." node_paths=PackedStringArray("playerMovement")]
+script = ExtResource("3_00uuw")
+playerMovement = NodePath("../Node - Player Movement")
+
+[node name="Node - Player Animation" type="Node" parent="." node_paths=PackedStringArray("sprite")]
+script = ExtResource("2_2fw0d")
+sprite = NodePath("../AnimatedSprite2D")
+
+[node name="Node - Player Movement" type="Node" parent="." node_paths=PackedStringArray("characterBody2D", "playerAnimation")]
+script = ExtResource("5_ib1st")
+characterBody2D = NodePath("..")
+playerAnimation = NodePath("../Node - Player Animation")
+
+[node name="Node - Player" type="Node" parent="." node_paths=PackedStringArray("characterBody", "hurtBoxes")]
+script = ExtResource("1_4wy47")
+characterBody = NodePath("..")
+hurtBoxes = [NodePath("../Area2D - HurtBox")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5)
+shape = SubResource("CircleShape2D_glkr3")
+
+[node name="Area2D - HurtBox" parent="." instance=ExtResource("6_eae27")]
+
+[editable path="Area2D - HurtBox"]

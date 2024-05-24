@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bj1f28p1tdhdl"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 259.0
+offset_top = 500.0
+offset_right = 1059.0
+offset_bottom = 650.0
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_right = 800.0
+offset_bottom = 150.0
+theme_override_font_sizes/font_size = 24
+text = "The mailbox is empty"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Camera2D" type="Camera2D" parent="Panel"]
+position = Vector2(-259, -500)
