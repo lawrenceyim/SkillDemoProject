@@ -436,11 +436,13 @@ position = Vector2(9, 54)
 [node name="Node - Player" parent="TileMap/PlayerPrefab" index="4" node_paths=PackedStringArray("hurtBoxes")]
 hurtBoxes = []
 
-[node name="Mail Box" parent="TileMap" node_paths=PackedStringArray("playerInputHandler") instance=ExtResource("3_dvl0e")]
+[node name="Mail Box" parent="TileMap" node_paths=PackedStringArray("popupManager", "playerInputHandler") instance=ExtResource("3_dvl0e")]
 position = Vector2(-9, 111)
+popupManager = NodePath("../../Panel/Popup Manager")
 playerInputHandler = NodePath("../PlayerPrefab/Node - Input Handler")
 
 [node name="Panel" parent="." instance=ExtResource("4_psi4o")]
 
 [editable path="TileMap/PlayerPrefab"]
 [editable path="TileMap/PlayerPrefab/Area2D - HurtBox"]
+[editable path="Panel"]
