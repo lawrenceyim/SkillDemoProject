@@ -8,13 +8,12 @@ public partial class InteractableItem : BaseItem, IInteractable
 	[Export] protected Area2D interactionArea;
 	[Export] protected Sprite2D interactionSprite;
 	[Export] protected PlayerInputHandler playerInputHandler;
-
 	private bool canInteractWith = false;
 
 	public override void _Ready() {
 		interactionArea.BodyEntered += AddInteractionIndicator;
 		interactionArea.BodyExited += RemoveInteractionIndicator;
-		//playerInputHandler.Interaction += InteractWith;
+		playerInputHandler.Interaction += InteractWith;
 
 		interactionSprite.Visible = false;
 	}

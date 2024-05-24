@@ -30,7 +30,8 @@ public partial class PlayerInputHandler : Node, IInputHandler {
 		}
 		playerMovement.MoveByVector2(movementVector);
 	
-		if (Input.IsActionPressed("Interact")) {
+		if (Input.IsActionJustPressed("Interact")) {
+            GD.Print("Interact pressed");
 			EmitSignal(SignalName.Interaction);			
 		}
 	}
