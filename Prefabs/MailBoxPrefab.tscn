@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://mhcka1iol2om"]
 
-[ext_resource type="Script" path="res://Scripts/Item/InteractableItem.cs" id="1_gwvju"]
+[ext_resource type="Script" path="res://Scripts/Item/MailBox.cs" id="1_boamt"]
 [ext_resource type="Texture2D" uid="uid://be77bw42sn5xq" path="res://Sprites/World of Solaria New Style DEMO.png" id="2_kde3b"]
 [ext_resource type="Texture2D" uid="uid://1yewa5l5ax2e" path="res://Sprites/icon.svg" id="3_u837j"]
 
@@ -13,7 +13,7 @@ size = Vector2(13, 10)
 [node name="Mail Box" type="Node2D" node_paths=PackedStringArray("interactionArea", "interactionSprite", "originalSprite")]
 z_index = 1
 y_sort_enabled = true
-script = ExtResource("1_gwvju")
+script = ExtResource("1_boamt")
 interactionArea = NodePath("Interaction Area")
 interactionSprite = NodePath("Interaction Indicator")
 originalSprite = NodePath("Original Sprite")
