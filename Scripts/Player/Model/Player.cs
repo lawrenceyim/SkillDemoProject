@@ -36,6 +36,7 @@ public partial class Player : CharacterBody2D, IDamageable {
 		rayCast2D.ForceRaycastUpdate();
 		CollisionObject2D target = (CollisionObject2D) rayCast2D.GetCollider();
 		(target?.GetParent() as IInteractable)?.InteractWith();
+		playerMovement.MoveByVector2(new Vector2(0, 0));
 	}
 
 
