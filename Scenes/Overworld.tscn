@@ -436,33 +436,28 @@ layer_3/modulate = Color(1, 1, 1, 0)
 layer_3/tile_data = PackedInt32Array(917491, 393216, 8, 917492, 393216, 8, 917493, 393216, 8, 917494, 393216, 8, 917495, 393216, 8, 917501, 393216, 8, 917502, 393216, 8, 917503, 393216, 8, 917496, 393216, 8, 917497, 393216, 8, 917498, 393216, 8, 917499, 393216, 8, 917500, 393216, 8, 851968, 393216, 8, 851969, 393216, 8, 851970, 393216, 8, 851971, 393216, 8, 851972, 393216, 8, 851973, 393216, 8, 851974, 393216, 8, 851975, 393216, 8, 851976, 393216, 8, 851977, 393216, 8, 851978, 393216, 8, 851979, 393216, 8, 851980, 393216, 8, 917490, 393216, 8, 851954, 393216, 8, 786418, 393216, 8, 720882, 393216, 8, 655346, 393216, 8, 589810, 393216, 8, 524274, 393216, 8, 65522, 393216, 8, -65550, 393216, 8, -131086, 393216, 8, -196622, 393216, 8, -262158, 393216, 8, -327694, 393216, 8, -393230, 393216, 8, -14, 393216, 8, 131058, 393216, 8, 196594, 393216, 8, 262130, 393216, 8, 327666, 393216, 8, 393202, 393216, 8, 458738, 393216, 8, -393229, 393216, 8, -393228, 393216, 8, -393227, 393216, 8, -393226, 393216, 8, -393225, 393216, 8, -393224, 393216, 8, -393223, 393216, 8, -393222, 393216, 8, -393221, 393216, 8, -393220, 393216, 8, -393219, 393216, 8, -393218, 393216, 8, -393217, 393216, 8, -458752, 393216, 8, -458751, 393216, 8, -458750, 393216, 8, -458749, 393216, 8, -458748, 393216, 8, -458747, 393216, 8, -458746, 393216, 8, -458745, 393216, 8, -458744, 393216, 8, -458743, 393216, 8, -458742, 393216, 8, -458741, 393216, 8, -458740, 393216, 8, -393204, 393216, 8, -327668, 393216, 8, -262132, 393216, 8, -196596, 393216, 8, -131060, 393216, 8, -65524, 393216, 8, 12, 393216, 8, 65548, 393216, 8, 131084, 393216, 8, 196620, 393216, 8, 262156, 393216, 8, 327692, 393216, 8, 393228, 393216, 8, 458764, 393216, 8, 524300, 393216, 8, 589836, 393216, 8, 655372, 393216, 8, 720908, 393216, 8, 786444, 393216, 8)
 
 [node name="PlayerPrefab" parent="TileMap" instance=ExtResource("2_rlicv")]
-position = Vector2(9, 54)
+position = Vector2(9, 58)
 
-[node name="Node - Player" parent="TileMap/PlayerPrefab" index="4" node_paths=PackedStringArray("hurtBoxes")]
-hurtBoxes = []
-
-[node name="Mail Box" parent="TileMap" node_paths=PackedStringArray("popupManager", "playerInputHandler") instance=ExtResource("3_dvl0e")]
+[node name="Mail Box" parent="TileMap" node_paths=PackedStringArray("popupManager", "player") instance=ExtResource("3_dvl0e")]
 position = Vector2(-9, 111)
 popupManager = NodePath("../../Panel/Popup Manager")
-playerInputHandler = NodePath("../PlayerPrefab/Node - Input Handler")
+player = NodePath("../PlayerPrefab")
 
 [node name="Scene Transition Zone" parent="TileMap" instance=ExtResource("4_sy4no")]
 position = Vector2(8, 35.87)
 scale = Vector2(0.16, 0.16)
 sceneName = 1
 
-[node name="Sign" parent="TileMap" node_paths=PackedStringArray("popupManager", "playerInputHandler") instance=ExtResource("5_7hr5l")]
+[node name="Sign" parent="TileMap" node_paths=PackedStringArray("popupManager", "player") instance=ExtResource("5_7hr5l")]
 position = Vector2(30, 117)
 signText = "Home sweet home.
 Property of Lawrence"
 popupManager = NodePath("../../Panel/Popup Manager")
-playerInputHandler = NodePath("../PlayerPrefab/Node - Input Handler")
+player = NodePath("../PlayerPrefab")
 
 [node name="Panel" parent="." instance=ExtResource("4_psi4o")]
 
-[node name="Popup Manager" parent="Panel" index="1" node_paths=PackedStringArray("playerInputHandler")]
-playerInputHandler = NodePath("../../TileMap/PlayerPrefab/Node - Input Handler")
+[node name="Popup Manager" parent="Panel" index="1" node_paths=PackedStringArray("player")]
+player = NodePath("../../TileMap/PlayerPrefab")
 
-[editable path="TileMap/PlayerPrefab"]
-[editable path="TileMap/PlayerPrefab/Area2D - HurtBox"]
 [editable path="Panel"]

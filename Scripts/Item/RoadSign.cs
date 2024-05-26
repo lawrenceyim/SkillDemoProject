@@ -21,10 +21,10 @@ public partial class RoadSign : InteractableItem {
 	}
 
 	public override void InteractWith() {
-			if (!popupManager.IsDialogueOccurring()) {
-				dialogueTree.Evaluate();
-			}
-			popupManager.DisplayNextMessageOrClose();
-			Logger.Print(this, Logger.DebugLevel.DEBUG, "Interacted with road sign.");
+		if (!popupManager.IsDialogueOccurring()) {
+			dialogueTree.Evaluate();
+		}
+		popupManager.DisplayNextMessageOrClose();
+		Logger.Print(this, Logger.DebugLevel.DEBUG, "Interacted with road sign.");
 	}
 }

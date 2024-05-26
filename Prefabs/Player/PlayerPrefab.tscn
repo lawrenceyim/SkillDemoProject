@@ -10,34 +10,30 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_glkr3"]
 radius = 4.0
 
-[node name="PlayerPrefab" type="CharacterBody2D"]
+[node name="PlayerPrefab" type="CharacterBody2D" node_paths=PackedStringArray("characterBody2D", "playerAnimation", "playerInputHandler", "playerMovement", "animatedSprite2D", "hurtBoxes", "rayCast2D")]
 z_index = 1
 y_sort_enabled = true
+script = ExtResource("1_4wy47")
+characterBody2D = NodePath(".")
+playerAnimation = NodePath("Player Animation")
+playerInputHandler = NodePath("Input Handler")
+playerMovement = NodePath("Player Movement")
+animatedSprite2D = NodePath("AnimatedSprite2D")
+hurtBoxes = [NodePath("Area2D - HurtBox")]
+rayCast2D = NodePath("RayCast2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("3_7if2a")
 animation = &"WALKING_LEFT"
 
-[node name="Node - Input Handler" type="Node" parent="." node_paths=PackedStringArray("playerMovement")]
+[node name="Input Handler" type="Node" parent="."]
 script = ExtResource("3_00uuw")
-playerMovement = NodePath("../Node - Player Movement")
 
-[node name="Node - Player Animation" type="Node" parent="." node_paths=PackedStringArray("sprite")]
+[node name="Player Animation" type="Node" parent="."]
 script = ExtResource("2_2fw0d")
-sprite = NodePath("../AnimatedSprite2D")
 
-[node name="Node - Player Movement" type="Node" parent="." node_paths=PackedStringArray("characterBody2D", "playerAnimation")]
+[node name="Player Movement" type="Node" parent="."]
 script = ExtResource("5_ib1st")
-characterBody2D = NodePath("..")
-playerAnimation = NodePath("../Node - Player Animation")
-
-[node name="Node - Player" type="Node" parent="." node_paths=PackedStringArray("characterBody", "playerAnimation", "playerInputHandler", "hurtBoxes", "rayCast2D")]
-script = ExtResource("1_4wy47")
-characterBody = NodePath("..")
-playerAnimation = NodePath("../Node - Player Animation")
-playerInputHandler = NodePath("../Node - Input Handler")
-hurtBoxes = [NodePath("../Area2D - HurtBox")]
-rayCast2D = NodePath("../RayCast2D")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -49,7 +45,7 @@ shape = SubResource("CircleShape2D_glkr3")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 position = Vector2(2.08165e-12, 5)
-target_position = Vector2(2.08165e-12, 25)
+target_position = Vector2(2.08165e-12, 15)
 collision_mask = 2
 collide_with_areas = true
 

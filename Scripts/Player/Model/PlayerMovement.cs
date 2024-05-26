@@ -2,13 +2,15 @@ using Godot;
 using System;
 
 public partial class PlayerMovement : Node {
-	[Export] private CharacterBody2D characterBody2D;
-	[Export] private PlayerAnimation playerAnimation;
+	private CharacterBody2D characterBody2D;
+	private PlayerAnimation playerAnimation;
 	private float movementSpeed = 50;
 	private Vector2 movementVector = new Vector2(0, 0);
 
 	public override void _Ready() {
-
+		Player player = (Player) GetParent();
+		characterBody2D = player.GetCharacterBody2D();
+		playerAnimation = player.GetPlayerAnimation();
 	}
 
 	public void MoveByVector2(Vector2 vector) {

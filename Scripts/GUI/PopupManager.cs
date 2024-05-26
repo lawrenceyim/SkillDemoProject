@@ -4,7 +4,8 @@ using System.Collections.Generic;
 
 public partial class PopupManager : Node
 {
-	[Export] private PlayerInputHandler playerInputHandler;
+	[Export] private Player player;
+	private PlayerInputHandler playerInputHandler;
 	[Export] private Panel popupPanel;
 	//[Export] Label nameLabel;
 	[Export] private Label messageLabel;
@@ -14,6 +15,7 @@ public partial class PopupManager : Node
 
 	public override void _Ready()
 	{
+		playerInputHandler = player.GetPlayerInputHandler();
 		popupPanel.Visible = false;
 	}
 

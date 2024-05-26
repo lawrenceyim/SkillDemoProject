@@ -12,10 +12,16 @@ public partial class PlayerAnimation : Node {
 		IDLE_LEFT = 7,
 	}
 
-	[Export] private AnimatedSprite2D sprite;
+	private AnimatedSprite2D sprite;
 	private AnimationName idleAnimation = AnimationName.IDLE_DOWN;
 
-	public void PlayWalkingAnimationByVector2(Vector2 vector) {
+    public override void _Ready()
+    {
+		Player player = (Player) GetParent();
+		sprite = player.GetAnimatedSprite2D();
+    }
+
+    public void PlayWalkingAnimationByVector2(Vector2 vector) {
 		if (vector.IsZeroApprox()) {
 			sprite.Play(idleAnimation.ToString());
 			return;

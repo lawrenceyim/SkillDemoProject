@@ -4,13 +4,12 @@ using System;
 public partial class PlayerInputHandler : Node, IInputHandler {
 	[Signal] public delegate void InteractionEventHandler();
 	[Signal] public delegate void MovementVectorEventHandler(Vector2 vector);
-
-	[Export] PlayerMovement playerMovement;
-
-	public bool movementPaused = false;
+	private PlayerMovement playerMovement;
+	private bool movementPaused = false;
 	
 	public override void _Ready() {
-
+		Player player = (Player) GetParent();
+		playerMovement = player.GetPlayerMovement();
 	}
 
 	public override void _Process(double delta) {

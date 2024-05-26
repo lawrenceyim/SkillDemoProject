@@ -21,10 +21,10 @@ public partial class MailBox : InteractableItem {
 	}
 
 	public override void InteractWith() {
-			if (!popupManager.IsDialogueOccurring()) {
-				dialogueTree.Evaluate();
-			}
-			popupManager.DisplayNextMessageOrClose();
-			Logger.Print(this, Logger.DebugLevel.DEBUG, "Interacted with mailbox.");
+		if (!popupManager.IsDialogueOccurring()) {
+			dialogueTree.Evaluate();
+		}
+		popupManager.DisplayNextMessageOrClose();
+		Logger.Print(this, Logger.DebugLevel.DEBUG, "Interacted with mailbox.");
 	}
 }

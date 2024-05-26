@@ -1,8 +1,10 @@
 using Godot;
-public partial class Player : Node, IDamageable {
-	[Export] private CharacterBody2D characterBody;
+public partial class Player : CharacterBody2D, IDamageable {
+	[Export] private CharacterBody2D characterBody2D;
 	[Export] private PlayerAnimation playerAnimation;
 	[Export] private PlayerInputHandler playerInputHandler;
+	[Export] private PlayerMovement playerMovement;
+	[Export] private AnimatedSprite2D animatedSprite2D;
 	[Export] private HurtBox[] hurtBoxes;
 	[Export] private RayCast2D rayCast2D;
 	[Export] private int health = 10; // Probably should make a separate Health class
@@ -35,4 +37,27 @@ public partial class Player : Node, IDamageable {
 		CollisionObject2D target = (CollisionObject2D) rayCast2D.GetCollider();
 		(target?.GetParent() as IInteractable)?.InteractWith();
 	}
+
+
+	#region Getters for node dependencies
+	public CharacterBody2D GetCharacterBody2D() {
+		return characterBody2D;
+	}
+
+	public PlayerAnimation GetPlayerAnimation() {
+		return playerAnimation;
+	}
+
+	public AnimatedSprite2D GetAnimatedSprite2D() {
+		return animatedSprite2D;
+	}
+
+	public PlayerInputHandler GetPlayerInputHandler() {
+		return playerInputHandler;
+	}
+
+	public PlayerMovement GetPlayerMovement() {
+		return playerMovement;
+	}
+	#endregion
 }
