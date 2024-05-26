@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 
 public partial class QuestionBox : CanvasLayer {
-	public event EventHandler<int> ButtonSelectedEvent;
 	public event EventHandler<bool> QuestionEventOccurring;
 
 	[Export] private Panel backgroundPanel;
@@ -11,14 +10,14 @@ public partial class QuestionBox : CanvasLayer {
 	[Export] private PackedScene buttonPrefab;
 	[Export] private VBoxContainer vBoxContainer;
 	private List<QuestionResponseButton> buttons = new List<QuestionResponseButton>();
-    private object questionFrom;
+    private QuestionNode questionNode;
 
 	public override void _Ready() {
 		HideQuestionBox();
 	}
 
 	public void AddQuestionAndResponses(object sender, string message, List<string> responses) {
-        questionFrom = sender;
+        questionNode = (QuestionNode) sender;
         QuestionEventOccurring?.Invoke(this, true);
 		questionLabel.Text = message;
 		foreach (string response in responses) {
@@ -37,9 +36,10 @@ public partial class QuestionBox : CanvasLayer {
 
 	public void ButtonPressed(object sender, int index) {
 		QuestionEventOccurring?.Invoke(this, false);
-		ButtonSelectedEvent?.Invoke(questionFrom, index);
-		ClearButtons();HideQuestionBox();
-	}
+		ClearButtons();
+        HideQuestionBox();
+        questionNode.ReceivePlayerResponse(index);
+    }
 
 	public void DisplayQuestionBox() {
 		Visible = true;

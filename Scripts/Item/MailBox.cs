@@ -26,11 +26,4 @@ public partial class MailBox : InteractableItem {
 		popupManager.DisplayNextMessageOrClose();
 		Logger.Print(this, Logger.DebugLevel.DEBUG, "Interacted with mailbox.");
 	}
-
-	protected override void QuestionResponseReceived(object sender, int index) {
-        if (sender != this) {
-            GD.Print("Sender does not match receiver");
-            return;
-        }
-    }
 }

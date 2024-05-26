@@ -25,11 +25,4 @@ public partial class SingleDialogueOnly : InteractableItem {
 
 	protected override void QuestionReceived(object sender, (string, List<string>) e) {
 	}
-
-	protected override void QuestionResponseReceived(object sender, int index) {
-		if (sender != this) {
-			GD.Print("Sender does not match receiver");
-			return;
-		}
-	}
 }

@@ -12,7 +12,6 @@ public abstract partial class InteractableItem : BaseItem, IInteractable
 	public override void _Ready() {
 		questionBox = (QuestionBox) GetTree().Root.GetNode("QuestionBox");
 		popupManager = (PopupManager) GetTree().Root.GetNode("PopupManager");
-		questionBox.ButtonSelectedEvent += QuestionResponseReceived;
 	}
 
 	public void SetDialogueTree(DialogueTree dialogueTree) {
@@ -22,7 +21,6 @@ public abstract partial class InteractableItem : BaseItem, IInteractable
 	}
 
 	public abstract void InteractWith();
-	protected abstract void QuestionResponseReceived(object sender, int index);
 	protected abstract void DialogueReceived(object sender, List<string> e);
 	protected abstract void QuestionReceived(object sender, (string, List<string>) e);
 }
