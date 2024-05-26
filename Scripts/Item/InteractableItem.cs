@@ -12,9 +12,7 @@ public abstract partial class InteractableItem : BaseItem, IInteractable
 	protected DialogueTree dialogueTree;
 
 	public override void _Ready() {
-		interactionArea.BodyEntered += AddInteractionIndicator;
-		interactionArea.BodyExited += RemoveInteractionIndicator;
-		playerInputHandler.Interaction += InteractWith;
+		// playerInputHandler.Interaction += InteractWith;
 		interactionSprite.Visible = false;
 	}
 	public void SetDialogueTree(DialogueTree dialogueTree) {
@@ -24,8 +22,6 @@ public abstract partial class InteractableItem : BaseItem, IInteractable
 	}
 
 	public abstract void InteractWith();
-	protected abstract void AddInteractionIndicator(Node2D body);
-	protected abstract void RemoveInteractionIndicator(Node2D body);
 	protected abstract void DialogueReceived(object sender, List<string> e);
 	protected abstract void QuestionReceived(object sender, (string, List<string>) e);
 }

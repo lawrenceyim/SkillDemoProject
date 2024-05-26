@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://bf212syf723j4" path="res://Prefabs/Player/PlayerPrefab.tscn" id="2_rlicv"]
 [ext_resource type="PackedScene" uid="uid://mhcka1iol2om" path="res://Prefabs/MailBoxPrefab.tscn" id="3_dvl0e"]
 [ext_resource type="PackedScene" uid="uid://bj1f28p1tdhdl" path="res://Prefabs/Popup Box.tscn" id="4_psi4o"]
-[ext_resource type="PackedScene" uid="uid://rpirkrc55ybd" path="res://Prefabs/SceneTransitionZone.tscn" id="4_sy4no"]
-[ext_resource type="PackedScene" uid="uid://barygowbn3fq8" path="res://Prefabs/SignPrefab.tscn" id="5_7hr5l"]
+[ext_resource type="PackedScene" path="res://Prefabs/SceneTransitionZone.tscn" id="4_sy4no"]
+[ext_resource type="PackedScene" uid="uid://dvxdkucw5ckgp" path="res://Prefabs/SignPrefab.tscn" id="5_7hr5l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m7xqi"]
 texture = ExtResource("1_n3fxo")

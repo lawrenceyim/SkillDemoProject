@@ -3,6 +3,7 @@ using System;
 
 public partial class PlayerInputHandler : Node, IInputHandler {
 	[Signal] public delegate void InteractionEventHandler();
+	[Signal] public delegate void MovementVectorEventHandler(Vector2 vector);
 
 	[Export] PlayerMovement playerMovement;
 
@@ -39,6 +40,9 @@ public partial class PlayerInputHandler : Node, IInputHandler {
 			movementVector.Y += 1;
 		}
 		playerMovement.MoveByVector2(movementVector);
+		if (!movementVector.IsZeroApprox()) {
+			EmitSignal(SignalName.MovementVector, movementVector);
+		}
 	}
 
 	public void SetMovementPause(bool paused) { 

@@ -1,5 +1,4 @@
 using Godot;
-using System;
 
 public partial class PlayerAnimation : Node {
 	public enum AnimationName {
@@ -13,13 +12,15 @@ public partial class PlayerAnimation : Node {
 		IDLE_LEFT = 7,
 	}
 
-	[Export] AnimatedSprite2D sprite;
-	AnimationName idleAnimation = AnimationName.IDLE_DOWN;
+	[Export] private AnimatedSprite2D sprite;
+	private AnimationName idleAnimation = AnimationName.IDLE_DOWN;
 
 	public void PlayWalkingAnimationByVector2(Vector2 vector) {
 		if (vector.IsZeroApprox()) {
 			sprite.Play(idleAnimation.ToString());
-		} else if (vector.X > 0) {
+			return;
+		}
+		if (vector.X > 0) {
 			sprite.Play(AnimationName.WALKING_RIGHT.ToString());
 			idleAnimation = AnimationName.IDLE_RIGHT;
 		} else if (vector.X < 0) {

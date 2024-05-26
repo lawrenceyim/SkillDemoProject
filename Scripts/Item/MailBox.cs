@@ -12,20 +12,6 @@ public partial class MailBox : InteractableItem {
 		SetDialogueTree(new DialogueTree(startNode));
 	}
 
-	protected override void AddInteractionIndicator(Node2D body) {
-		if (IsPlayer((Node)body)) {
-			interactionSprite.Visible = true;
-			canInteractWith = true;
-		}
-	}
-
-	protected override void RemoveInteractionIndicator(Node2D body) {
-		if (IsPlayer((Node)body)) {
-			interactionSprite.Visible = false;
-			canInteractWith = false;
-		}
-	}
-
 	protected override void DialogueReceived(object sender, List<string> e) {
 		popupManager.AddMessageToQueue(e);
 	}
@@ -35,21 +21,10 @@ public partial class MailBox : InteractableItem {
 	}
 
 	public override void InteractWith() {
-		if (canInteractWith) {
 			if (!popupManager.IsDialogueOccurring()) {
 				dialogueTree.Evaluate();
 			}
 			popupManager.DisplayNextMessageOrClose();
 			Logger.Print(this, Logger.DebugLevel.DEBUG, "Interacted with mailbox.");
-		}
-	}
-
-	private bool IsPlayer(Node node) {
-		foreach (Node child in node.GetChildren()) {
-			if (child is Player) {
-				return true;
-			}
-		}
-		return false;
 	}
 }

@@ -31,10 +31,13 @@ script = ExtResource("5_ib1st")
 characterBody2D = NodePath("..")
 playerAnimation = NodePath("../Node - Player Animation")
 
-[node name="Node - Player" type="Node" parent="." node_paths=PackedStringArray("characterBody", "hurtBoxes")]
+[node name="Node - Player" type="Node" parent="." node_paths=PackedStringArray("characterBody", "playerAnimation", "playerInputHandler", "hurtBoxes", "rayCast2D")]
 script = ExtResource("1_4wy47")
 characterBody = NodePath("..")
+playerAnimation = NodePath("../Node - Player Animation")
+playerInputHandler = NodePath("../Node - Input Handler")
 hurtBoxes = [NodePath("../Area2D - HurtBox")]
+rayCast2D = NodePath("../RayCast2D")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -43,5 +46,11 @@ position = Vector2(0, 5)
 shape = SubResource("CircleShape2D_glkr3")
 
 [node name="Area2D - HurtBox" parent="." instance=ExtResource("6_eae27")]
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(2.08165e-12, 5)
+target_position = Vector2(2.08165e-12, 25)
+collision_mask = 2
+collide_with_areas = true
 
 [editable path="Area2D - HurtBox"]

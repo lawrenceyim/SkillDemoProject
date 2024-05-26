@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://d3nvkama066h6" path="res://Sprites/Interiors_free_16x16.png" id="1_anwob"]
 [ext_resource type="Texture2D" uid="uid://dferd4svdeeri" path="res://Sprites/Room_Builder_free_16x16.png" id="2_t0qk8"]
 [ext_resource type="PackedScene" uid="uid://bf212syf723j4" path="res://Prefabs/Player/PlayerPrefab.tscn" id="3_mq0cq"]
-[ext_resource type="PackedScene" uid="uid://rpirkrc55ybd" path="res://Prefabs/SceneTransitionZone.tscn" id="4_lep6s"]
+[ext_resource type="PackedScene" path="res://Prefabs/SceneTransitionZone.tscn" id="4_lep6s"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vpty2"]
 texture = ExtResource("1_anwob")
