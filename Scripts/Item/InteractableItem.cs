@@ -11,6 +11,13 @@ public abstract partial class InteractableItem : BaseItem, IInteractable
 	protected bool canInteractWith = false;
 	protected DialogueTree dialogueTree;
 
+	public override void _Ready() {
+		interactionArea.BodyEntered += AddInteractionIndicator;
+		interactionArea.BodyExited += RemoveInteractionIndicator;
+		playerInputHandler.Interaction += InteractWith;
+		interactionSprite.Visible = false;
+	}
+
 	public abstract void InteractWith();
 	protected abstract void AddInteractionIndicator(Node2D body);
 	protected abstract void RemoveInteractionIndicator(Node2D body);

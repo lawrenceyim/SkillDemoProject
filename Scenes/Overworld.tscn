@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cuy0rd60mdm36"]
+[gd_scene load_steps=8 format=3 uid="uid://cuy0rd60mdm36"]
 
 [ext_resource type="Texture2D" uid="uid://be77bw42sn5xq" path="res://Sprites/World of Solaria New Style DEMO.png" id="1_n3fxo"]
 [ext_resource type="PackedScene" uid="uid://bf212syf723j4" path="res://Prefabs/Player/PlayerPrefab.tscn" id="2_rlicv"]
 [ext_resource type="PackedScene" uid="uid://mhcka1iol2om" path="res://Prefabs/MailBoxPrefab.tscn" id="3_dvl0e"]
 [ext_resource type="PackedScene" uid="uid://bj1f28p1tdhdl" path="res://Prefabs/Popup Box.tscn" id="4_psi4o"]
+[ext_resource type="PackedScene" uid="uid://rpirkrc55ybd" path="res://Prefabs/SceneTransitionZone.tscn" id="4_sy4no"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m7xqi"]
 texture = ExtResource("1_n3fxo")
@@ -440,6 +441,11 @@ hurtBoxes = []
 position = Vector2(-9, 111)
 popupManager = NodePath("../../Panel/Popup Manager")
 playerInputHandler = NodePath("../PlayerPrefab/Node - Input Handler")
+
+[node name="Scene Transition Zone" parent="TileMap" instance=ExtResource("4_sy4no")]
+position = Vector2(8, 35.87)
+scale = Vector2(0.16, 0.16)
+sceneName = 1
 
 [node name="Panel" parent="." instance=ExtResource("4_psi4o")]
 

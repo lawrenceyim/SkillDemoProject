@@ -5,15 +5,14 @@ using System.Collections.Generic;
 public partial class MailBox : InteractableItem {
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready() {
-		interactionArea.BodyEntered += AddInteractionIndicator;
-		interactionArea.BodyExited += RemoveInteractionIndicator;
-		playerInputHandler.Interaction += InteractWith;
+		base._Ready();
 
-		dialogueTree = new DialogueTree(new DialogueNode("Your mailbox is empty."));
+		BaseDialogueNode startNode = new DialogueNode("Your mailbox is empty.");
+		(startNode as DialogueNode).AddMessage("Check again tomorrow");
+		dialogueTree = new DialogueTree(startNode);
 		dialogueTree.OnQuestionSent += QuestionReceived;
 		dialogueTree.OnDialogueSent += DialogueReceived;
 
-		interactionSprite.Visible = false;
 	}
 
 	protected override void AddInteractionIndicator(Node2D body) {
