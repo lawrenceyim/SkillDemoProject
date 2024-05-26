@@ -9,12 +9,10 @@ size = Vector2(9, 18)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6a3hw"]
 size = Vector2(13, 20)
 
-[node name="Mail Box" type="Node2D" node_paths=PackedStringArray("interactionArea", "originalSprite")]
+[node name="Mail Box" type="Node2D"]
 z_index = 1
 y_sort_enabled = true
 script = ExtResource("1_boamt")
-interactionArea = NodePath("Interaction Area")
-originalSprite = NodePath("Original Sprite")
 
 [node name="Interaction Area" type="Area2D" parent="."]
 collision_layer = 2

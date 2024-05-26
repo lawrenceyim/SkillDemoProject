@@ -3,40 +3,30 @@
 [ext_resource type="Script" path="res://Scripts/Item/SingleDialogueOnly.cs" id="2_o1iwe"]
 [ext_resource type="Texture2D" uid="uid://be77bw42sn5xq" path="res://Sprites/World of Solaria New Style DEMO.png" id="4_d1gg3"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ljbit"]
-size = Vector2(8, 11)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pdts4"]
-size = Vector2(10, 12)
+size = Vector2(16, 16)
 
-[node name="Road Sign" type="Node2D" node_paths=PackedStringArray("interactionArea", "originalSprite")]
-z_index = 1
-y_sort_enabled = true
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ljbit"]
+size = Vector2(16, 16)
+
+[node name="Original Sprite" type="Sprite2D"]
+texture = ExtResource("4_d1gg3")
+region_enabled = true
+region_rect = Rect2(112.728, 161.403, 15.234, 14.2448)
 script = ExtResource("2_o1iwe")
-signText = "Home sweet home
-Property of Lawrence"
-interactionArea = NodePath("Interaction Area")
-originalSprite = NodePath("Original Sprite")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(2.08165e-12, 2.08165e-12)
+shape = SubResource("RectangleShape2D_pdts4")
 
 [node name="Interaction Area" type="Area2D" parent="."]
 collision_layer = 2
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Interaction Area" node_paths=PackedStringArray("interactionArea", "originalSprite")]
-position = Vector2(-0.5, -0.5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interaction Area"]
+position = Vector2(2.08165e-12, 2.08165e-12)
 shape = SubResource("RectangleShape2D_ljbit")
 script = ExtResource("2_o1iwe")
-interactionArea = NodePath("..")
-originalSprite = NodePath("../../Original Sprite")
-
-[node name="Original Sprite" type="Sprite2D" parent="."]
-texture = ExtResource("4_d1gg3")
-region_enabled = true
-region_rect = Rect2(112.728, 161.403, 15.234, 14.2448)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Original Sprite"]
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Original Sprite/StaticBody2D"]
-position = Vector2(-0.5, 1)
-shape = SubResource("RectangleShape2D_pdts4")

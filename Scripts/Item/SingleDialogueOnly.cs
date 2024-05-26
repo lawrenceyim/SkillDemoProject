@@ -4,10 +4,9 @@ using System.Collections.Generic;
 
 public partial class SingleDialogueOnly : InteractableItem {
 	[Export(PropertyHint.MultilineText)] private string signText;
-
+	
 	public override void _Ready() {
 		base._Ready();
-
 		BaseDialogueNode startNode = new DialogueNode(signText);
 		SetDialogueTree(new DialogueTree(startNode));
 	}
