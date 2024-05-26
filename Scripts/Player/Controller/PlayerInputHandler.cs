@@ -15,12 +15,12 @@ public partial class PlayerInputHandler : Node, IInputHandler {
 	}
 
 	public void HandleInput() {
-        if (Input.IsActionJustPressed("Interact")) {
-            GD.Print("Interact pressed");
-            EmitSignal(SignalName.Interaction);
-        }
+		if (Input.IsActionJustPressed("Interact")) {
+			GD.Print("Interact pressed");
+			EmitSignal(SignalName.Interaction);
+		}
 
-        Vector2 movementVector = new Vector2(0, 0);
+		Vector2 movementVector = new Vector2(0, 0);
 		if (Input.IsActionPressed("MoveLeft")) {
 			movementVector.X -= 1;
 		}
