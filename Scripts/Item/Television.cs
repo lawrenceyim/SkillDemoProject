@@ -29,10 +29,14 @@ public partial class Television : InteractableItem {
 
 	protected override void QuestionReceived(object sender, (string, List<string>) e) {
 		questionBox.DisplayQuestionBox();
-		questionBox.AddQuestionAndResponses(e.Item1, e.Item2);
+		questionBox.AddQuestionAndResponses(this, e.Item1, e.Item2);
 	}
 
 	protected override void QuestionResponseReceived(object sender, int index) {
+		if (sender != this) {
+			GD.Print("Sender does not match receiver");
+			return;
+		}
 		GD.Print(index);
 	}
 }

@@ -28,5 +28,9 @@ public partial class MailBox : InteractableItem {
 	}
 
 	protected override void QuestionResponseReceived(object sender, int index) {
-	}
+        if (sender != this) {
+            GD.Print("Sender does not match receiver");
+            return;
+        }
+    }
 }
