@@ -9,10 +9,7 @@ public partial class MailBox : InteractableItem {
 
 		BaseDialogueNode startNode = new DialogueNode("Your mailbox is empty.");
 		(startNode as DialogueNode).AddMessage("Check again tomorrow");
-		dialogueTree = new DialogueTree(startNode);
-		dialogueTree.OnQuestionSent += QuestionReceived;
-		dialogueTree.OnDialogueSent += DialogueReceived;
-
+		SetDialogueTree(new DialogueTree(startNode));
 	}
 
 	protected override void AddInteractionIndicator(Node2D body) {

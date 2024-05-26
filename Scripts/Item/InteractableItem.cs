@@ -17,6 +17,11 @@ public abstract partial class InteractableItem : BaseItem, IInteractable
 		playerInputHandler.Interaction += InteractWith;
 		interactionSprite.Visible = false;
 	}
+	public void SetDialogueTree(DialogueTree dialogueTree) {
+		this.dialogueTree = dialogueTree;
+		dialogueTree.OnQuestionSent += QuestionReceived;
+		dialogueTree.OnDialogueSent += DialogueReceived;
+	}
 
 	public abstract void InteractWith();
 	protected abstract void AddInteractionIndicator(Node2D body);
