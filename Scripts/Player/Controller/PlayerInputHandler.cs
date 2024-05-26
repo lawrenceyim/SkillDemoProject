@@ -5,6 +5,7 @@ public partial class PlayerInputHandler : Node, IInputHandler {
 	[Signal] public delegate void InteractionEventHandler();
 	[Signal] public delegate void MovementVectorEventHandler(Vector2 vector);
 	private PlayerMovement playerMovement;
+	private QuestionBox questionBox;
 	private PopupManager popupManager;
 	private bool movementPaused = false;
 	
@@ -13,6 +14,8 @@ public partial class PlayerInputHandler : Node, IInputHandler {
 		playerMovement = player.GetPlayerMovement();
 		popupManager = (PopupManager) GetTree().Root.GetNode("PopupManager");
 		popupManager.Dialogue += SetMovementPause;
+		questionBox = (QuestionBox)GetTree().Root.GetNode("QuestionBox");
+		questionBox.QuestionEventOccurring += SetMovementPause;
 	}
 
 	public override void _Process(double delta) {
@@ -48,6 +51,10 @@ public partial class PlayerInputHandler : Node, IInputHandler {
 	}
 
 	public void SetMovementPause(bool paused) { 
+		movementPaused = paused;
+	}
+
+	public void SetMovementPause(object sender, bool paused) {
 		movementPaused = paused;
 	}
 }

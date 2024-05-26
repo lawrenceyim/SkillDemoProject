@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://be77bw42sn5xq" path="res://Sprites/World of Solaria New Style DEMO.png" id="1_n3fxo"]
 [ext_resource type="PackedScene" uid="uid://bf212syf723j4" path="res://Prefabs/Player/PlayerPrefab.tscn" id="2_rlicv"]
-[ext_resource type="PackedScene" uid="uid://mhcka1iol2om" path="res://Prefabs/MailBoxPrefab.tscn" id="3_dvl0e"]
+[ext_resource type="PackedScene" uid="uid://mhcka1iol2om" path="res://Prefabs/Items/MailBoxPrefab.tscn" id="3_6rmnj"]
 [ext_resource type="PackedScene" uid="uid://rpirkrc55ybd" path="res://Prefabs/SceneTransitionZone.tscn" id="4_sy4no"]
 [ext_resource type="PackedScene" uid="uid://dvxdkucw5ckgp" path="res://Prefabs/Items/SignPrefab.tscn" id="5_vxr5g"]
 
@@ -437,7 +437,7 @@ layer_3/tile_data = PackedInt32Array(917491, 393216, 8, 917492, 393216, 8, 91749
 [node name="PlayerPrefab" parent="TileMap" instance=ExtResource("2_rlicv")]
 position = Vector2(9, 58)
 
-[node name="Mail Box" parent="TileMap" instance=ExtResource("3_dvl0e")]
+[node name="Mail Box" parent="TileMap" instance=ExtResource("3_6rmnj")]
 position = Vector2(-9, 111)
 
 [node name="Scene Transition Zone" parent="TileMap" instance=ExtResource("4_sy4no")]

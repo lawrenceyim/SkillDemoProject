@@ -15,15 +15,18 @@ public partial class SingleDialogueOnly : InteractableItem {
 		popupManager.AddMessageToQueue(e);
 	}
 
-	protected override void QuestionReceived(object sender, (string, List<string>) e) {
-		throw new NotImplementedException();
-	}
-
 	public override void InteractWith() {
-		if (!popupManager.IsDialogueOccurring()) {
+		if (!popupManager.IsDialogueOccurring() && !questionBox.IsQuestionOccurring()) {
 			dialogueTree.Evaluate();
 		}
 		popupManager.DisplayNextMessageOrClose();
 		Logger.Print(this, Logger.DebugLevel.DEBUG, "Interacted with SingleDialogueOnly.");
+	}
+
+	protected override void QuestionReceived(object sender, (string, List<string>) e) {
+	}
+
+	protected override void QuestionResponseReceived(object sender, int index) {
+		
 	}
 }

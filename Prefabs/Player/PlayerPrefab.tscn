@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://Scripts/Player/Controller/PlayerInputHandler.cs" id="3_00uuw"]
 [ext_resource type="SpriteFrames" uid="uid://3dcis2t5gbjt" path="res://Animation/PlayerAnimations.tres" id="3_7if2a"]
 [ext_resource type="Script" path="res://Scripts/Player/Model/PlayerMovement.cs" id="5_ib1st"]
-[ext_resource type="PackedScene" uid="uid://bai5bdnmgxcfw" path="res://Prefabs/HurtBoxPrefab.tscn" id="6_eae27"]
+[ext_resource type="PackedScene" uid="uid://bai5bdnmgxcfw" path="res://Prefabs/Player/HurtBoxPrefab.tscn" id="6_eae27"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_glkr3"]
 radius = 4.0

@@ -17,7 +17,6 @@ public partial class MailBox : InteractableItem {
 	}
 
 	protected override void QuestionReceived(object sender, (string, List<string>) e) {
-		throw new NotImplementedException();
 	}
 
 	public override void InteractWith() {
@@ -26,5 +25,8 @@ public partial class MailBox : InteractableItem {
 		}
 		popupManager.DisplayNextMessageOrClose();
 		Logger.Print(this, Logger.DebugLevel.DEBUG, "Interacted with mailbox.");
+	}
+
+	protected override void QuestionResponseReceived(object sender, int index) {
 	}
 }

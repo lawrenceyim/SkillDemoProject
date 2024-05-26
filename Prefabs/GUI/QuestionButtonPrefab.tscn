@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0tktu8e5jwua"]
+
+[ext_resource type="Script" path="res://Scripts/GUI/QuestionResponseButton.cs" id="1_a7eik"]
+
+[node name="Button" type="Button"]
+offset_right = 800.0
+offset_bottom = 50.0
+text = "Response"
+script = ExtResource("1_a7eik")

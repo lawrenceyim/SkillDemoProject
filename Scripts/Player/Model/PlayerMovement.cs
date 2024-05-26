@@ -1,6 +1,4 @@
 using Godot;
-using System;
-
 public partial class PlayerMovement : Node {
 	private CharacterBody2D characterBody2D;
 	private PlayerAnimation playerAnimation;

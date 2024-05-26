@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://cw3y8hq4w8gf"]
+
+[ext_resource type="Texture2D" uid="uid://d3nvkama066h6" path="res://Sprites/Interiors_free_16x16.png" id="1_ty6e2"]
+[ext_resource type="Script" path="res://Scripts/Item/Television.cs" id="2_f77p0"]
+[ext_resource type="Script" path="res://Scripts/Item/SingleDialogueOnly.cs" id="2_xblw6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pdts4"]
+size = Vector2(16, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ljbit"]
+size = Vector2(16, 20)
+
+[node name="Television" type="Sprite2D"]
+z_index = 1
+y_sort_enabled = true
+texture = ExtResource("1_ty6e2")
+region_enabled = true
+region_rect = Rect2(47.3794, 138.514, 17.6589, 20.929)
+script = ExtResource("2_f77p0")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(2.08165e-12, 0)
+shape = SubResource("RectangleShape2D_pdts4")
+
+[node name="Interaction Area" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interaction Area"]
+position = Vector2(2.08165e-12, 0)
+shape = SubResource("RectangleShape2D_ljbit")
+script = ExtResource("2_xblw6")

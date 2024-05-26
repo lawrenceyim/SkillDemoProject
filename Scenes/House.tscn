@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://cuw8n85hsnohr"]
+[gd_scene load_steps=9 format=3 uid="uid://cuw8n85hsnohr"]
 
 [ext_resource type="Texture2D" uid="uid://d3nvkama066h6" path="res://Sprites/Interiors_free_16x16.png" id="1_anwob"]
 [ext_resource type="Texture2D" uid="uid://dferd4svdeeri" path="res://Sprites/Room_Builder_free_16x16.png" id="2_t0qk8"]
 [ext_resource type="PackedScene" uid="uid://bf212syf723j4" path="res://Prefabs/Player/PlayerPrefab.tscn" id="3_mq0cq"]
 [ext_resource type="PackedScene" uid="uid://rpirkrc55ybd" path="res://Prefabs/SceneTransitionZone.tscn" id="4_lep6s"]
+[ext_resource type="PackedScene" uid="uid://cw3y8hq4w8gf" path="res://Prefabs/Items/Television.tscn" id="4_tde1p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vpty2"]
 texture = ExtResource("1_anwob")
@@ -5228,6 +5229,9 @@ layer_2/tile_data = PackedInt32Array(393218, 262144, 10, 393219, 262144, 10, 393
 
 [node name="PlayerPrefab" parent="TileMap" instance=ExtResource("3_mq0cq")]
 position = Vector2(17, 77)
+
+[node name="Television" parent="TileMap" instance=ExtResource("4_tde1p")]
+position = Vector2(13, 47)
 
 [node name="Scene Transition Zone" parent="." instance=ExtResource("4_lep6s")]
 position = Vector2(16, 115)
