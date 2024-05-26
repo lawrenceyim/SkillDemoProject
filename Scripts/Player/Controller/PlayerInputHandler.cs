@@ -5,6 +5,8 @@ public partial class PlayerInputHandler : Node, IInputHandler {
 	[Signal] public delegate void InteractionEventHandler();
 
 	[Export] PlayerMovement playerMovement;
+
+	public bool movementPaused = false;
 	
 	public override void _Ready() {
 
@@ -18,6 +20,10 @@ public partial class PlayerInputHandler : Node, IInputHandler {
 		if (Input.IsActionJustPressed("Interact")) {
 			GD.Print("Interact pressed");
 			EmitSignal(SignalName.Interaction);
+		}
+
+		if (movementPaused) {
+			return;
 		}
 
 		Vector2 movementVector = new Vector2(0, 0);
@@ -34,7 +40,9 @@ public partial class PlayerInputHandler : Node, IInputHandler {
 			movementVector.Y += 1;
 		}
 		playerMovement.MoveByVector2(movementVector);
-	
+	}
 
+	public void SetMovementPause(bool paused) { 
+		movementPaused = paused;
 	}
 }

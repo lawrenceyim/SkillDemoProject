@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public partial class PopupManager : Node
 {
+	[Export] private PlayerInputHandler playerInputHandler;
 	[Export] private Panel popupPanel;
 	//[Export] Label nameLabel;
 	[Export] private Label messageLabel;
@@ -22,6 +23,7 @@ public partial class PopupManager : Node
 
 	public void AddMessageToQueue(List<string> messageList) {
 		isDialogueOccurring = true;
+		playerInputHandler.SetMovementPause(true);
 		foreach (string message in messageList) {
 			messageQueue.Enqueue(message);
 		}
@@ -34,6 +36,7 @@ public partial class PopupManager : Node
 		} else {
 			isDialogueOccurring = false;
 			HidePopupPanel();
+			playerInputHandler.SetMovementPause(false);
 		}
 	}
 

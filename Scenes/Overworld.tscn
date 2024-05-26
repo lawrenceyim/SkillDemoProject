@@ -449,6 +449,9 @@ sceneName = 1
 
 [node name="Panel" parent="." instance=ExtResource("4_psi4o")]
 
+[node name="Popup Manager" parent="Panel" index="1" node_paths=PackedStringArray("playerInputHandler")]
+playerInputHandler = NodePath("../../TileMap/PlayerPrefab/Node - Input Handler")
+
 [editable path="TileMap/PlayerPrefab"]
 [editable path="TileMap/PlayerPrefab/Area2D - HurtBox"]
 [editable path="Panel"]
