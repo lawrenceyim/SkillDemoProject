@@ -2,7 +2,7 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
-public partial class RoadSign : InteractableItem {
+public partial class SingleDialogueOnly : InteractableItem {
 	[Export(PropertyHint.MultilineText)] private string signText;
 
 	public override void _Ready() {
@@ -25,6 +25,6 @@ public partial class RoadSign : InteractableItem {
 			dialogueTree.Evaluate();
 		}
 		popupManager.DisplayNextMessageOrClose();
-		Logger.Print(this, Logger.DebugLevel.DEBUG, "Interacted with road sign.");
+		Logger.Print(this, Logger.DebugLevel.DEBUG, "Interacted with SingleDialogueOnly.");
 	}
 }

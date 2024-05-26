@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://bj1f28p1tdhdl"]
 
-[ext_resource type="Script" path="res://Scripts/GUI/PopupManager.cs" id="1_urddo"]
+[ext_resource type="Script" path="res://Scripts/GUI/PopupManager.cs" id="1_q17o3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_p2h3e"]
 
-[node name="Popup" type="CanvasLayer"]
-script = ExtResource("1_urddo")
+[node name="PopupManager" type="CanvasLayer"]
+script = ExtResource("1_q17o3")
 
 [node name="Panel" type="Panel" parent="."]
 material = SubResource("ShaderMaterial_p2h3e")
