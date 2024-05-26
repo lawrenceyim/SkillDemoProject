@@ -4,7 +4,8 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_p2h3e"]
 
-[node name="CanvasLayer" type="CanvasLayer"]
+[node name="Popup" type="CanvasLayer"]
+script = ExtResource("1_urddo")
 
 [node name="Panel" type="Panel" parent="."]
 material = SubResource("ShaderMaterial_p2h3e")
@@ -27,8 +28,3 @@ theme_override_font_sizes/font_size = 7
 text = "The mailbox is empty"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="Popup Manager" type="Node" parent="." node_paths=PackedStringArray("popupPanel", "messageLabel")]
-script = ExtResource("1_urddo")
-popupPanel = NodePath("../Panel")
-messageLabel = NodePath("../Panel/Label")

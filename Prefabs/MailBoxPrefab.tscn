@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://1yewa5l5ax2e" path="res://Sprites/icon.svg" id="3_u837j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ljbit"]
-size = Vector2(13, 20)
+size = Vector2(9, 18)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6a3hw"]
 size = Vector2(13, 20)
@@ -23,7 +23,7 @@ collision_layer = 2
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interaction Area"]
-position = Vector2(0.5, 0)
+position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_ljbit")
 
 [node name="Interaction Indicator" type="Sprite2D" parent="."]

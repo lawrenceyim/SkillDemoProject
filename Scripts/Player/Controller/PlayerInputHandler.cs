@@ -5,11 +5,14 @@ public partial class PlayerInputHandler : Node, IInputHandler {
 	[Signal] public delegate void InteractionEventHandler();
 	[Signal] public delegate void MovementVectorEventHandler(Vector2 vector);
 	private PlayerMovement playerMovement;
+	private PopupManager popupManager;
 	private bool movementPaused = false;
 	
 	public override void _Ready() {
 		Player player = (Player) GetParent();
 		playerMovement = player.GetPlayerMovement();
+		popupManager = (PopupManager) GetTree().Root.GetNode("PopupManager");
+		popupManager.Dialogue += SetMovementPause;
 	}
 
 	public override void _Process(double delta) {

@@ -4,18 +4,18 @@ using System.Collections.Generic;
 
 public partial class PopupManager : Node
 {
-	[Export] private Player player;
-	private PlayerInputHandler playerInputHandler;
-	[Export] private Panel popupPanel;
+	[Signal] public delegate void DialogueEventHandler(bool occurring);
+	private Panel popupPanel;
 	//[Export] Label nameLabel;
-	[Export] private Label messageLabel;
+	private Label messageLabel;
 	private Queue<string> messageQueue = new Queue<string>();
 	private bool isDialogueOccurring = false;
 	private bool hasMessages => messageQueue.Count > 0; 
 
 	public override void _Ready()
 	{
-		playerInputHandler = player.GetPlayerInputHandler();
+		popupPanel = (Panel) GetNode("Panel");
+		messageLabel = (Label) GetNode("Panel/Label");
 		popupPanel.Visible = false;
 	}
 
@@ -25,7 +25,7 @@ public partial class PopupManager : Node
 
 	public void AddMessageToQueue(List<string> messageList) {
 		isDialogueOccurring = true;
-		playerInputHandler.SetMovementPause(true);
+		EmitSignal(SignalName.Dialogue, true);
 		foreach (string message in messageList) {
 			messageQueue.Enqueue(message);
 		}
@@ -38,7 +38,7 @@ public partial class PopupManager : Node
 		} else {
 			isDialogueOccurring = false;
 			HidePopupPanel();
-			playerInputHandler.SetMovementPause(false);
+			EmitSignal(SignalName.Dialogue, false);
 		}
 	}
 
