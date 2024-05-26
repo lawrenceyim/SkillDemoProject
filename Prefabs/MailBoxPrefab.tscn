@@ -4,11 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://be77bw42sn5xq" path="res://Sprites/World of Solaria New Style DEMO.png" id="2_kde3b"]
 [ext_resource type="Texture2D" uid="uid://1yewa5l5ax2e" path="res://Sprites/icon.svg" id="3_u837j"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_a4iub"]
-size = Vector2(13, 20)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ljbit"]
 size = Vector2(13, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6a3hw"]
+size = Vector2(13, 20)
 
 [node name="Mail Box" type="Node2D" node_paths=PackedStringArray("interactionArea", "interactionSprite", "originalSprite")]
 z_index = 1
@@ -17,17 +17,6 @@ script = ExtResource("1_boamt")
 interactionArea = NodePath("Interaction Area")
 interactionSprite = NodePath("Interaction Indicator")
 originalSprite = NodePath("Original Sprite")
-
-[node name="Original Sprite" type="Sprite2D" parent="."]
-texture = ExtResource("2_kde3b")
-region_enabled = true
-region_rect = Rect2(129.862, 170.998, 13.7277, 20.5398)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Original Sprite"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Original Sprite/StaticBody2D"]
-position = Vector2(0.5, 0)
-shape = SubResource("RectangleShape2D_a4iub")
 
 [node name="Interaction Area" type="Area2D" parent="."]
 collision_layer = 0
@@ -41,3 +30,14 @@ z_index = 1
 position = Vector2(2.08165e-12, -20)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("3_u837j")
+
+[node name="Original Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_kde3b")
+region_enabled = true
+region_rect = Rect2(129.862, 170.998, 13.7277, 20.5398)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Original Sprite"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Original Sprite/StaticBody2D"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_6a3hw")
