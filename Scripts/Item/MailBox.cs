@@ -36,13 +36,11 @@ public partial class MailBox : InteractableItem {
 
 	public override void InteractWith() {
 		if (canInteractWith) {
-			GD.Print("Interacted with mail box");
 			if (!popupManager.IsDialogueOccurring()) {
 				dialogueTree.Evaluate();
 			}
-			GD.Print(popupManager.HasMessages());
 			popupManager.DisplayNextMessageOrClose();
-			GD.Print(popupManager.HasMessages());
+			Logger.Print(this, Logger.DebugLevel.DEBUG, "Interacted with mailbox.");
 		}
 	}
 

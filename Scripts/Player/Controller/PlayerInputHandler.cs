@@ -18,7 +18,6 @@ public partial class PlayerInputHandler : Node, IInputHandler {
 
 	public void HandleInput() {
 		if (Input.IsActionJustPressed("Interact")) {
-			GD.Print("Interact pressed");
 			EmitSignal(SignalName.Interaction);
 		}
 
