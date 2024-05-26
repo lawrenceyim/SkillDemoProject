@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://crvi4byco0s76"]
+
+[ext_resource type="Texture2D" uid="uid://bf5y8bd42s5ph" path="res://Sprites/LoadingScreen.png" id="1_xipyb"]
+[ext_resource type="Script" path="res://Scripts/GUI/LoadingScreen.cs" id="2_gqeph"]
+
+[node name="LoadingScreen" type="Sprite2D"]
+z_index = 100
+texture = ExtResource("1_xipyb")
+script = ExtResource("2_gqeph")

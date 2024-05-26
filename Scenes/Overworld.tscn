@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://be77bw42sn5xq" path="res://Sprites/World of Solaria New Style DEMO.png" id="1_n3fxo"]
 [ext_resource type="PackedScene" uid="uid://bf212syf723j4" path="res://Prefabs/Player/PlayerPrefab.tscn" id="2_rlicv"]
 [ext_resource type="PackedScene" uid="uid://mhcka1iol2om" path="res://Prefabs/MailBoxPrefab.tscn" id="3_dvl0e"]
-[ext_resource type="PackedScene" path="res://Prefabs/SceneTransitionZone.tscn" id="4_sy4no"]
+[ext_resource type="PackedScene" uid="uid://rpirkrc55ybd" path="res://Prefabs/SceneTransitionZone.tscn" id="4_sy4no"]
 [ext_resource type="PackedScene" uid="uid://dvxdkucw5ckgp" path="res://Prefabs/Items/SignPrefab.tscn" id="5_vxr5g"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m7xqi"]
@@ -437,36 +437,31 @@ layer_3/tile_data = PackedInt32Array(917491, 393216, 8, 917492, 393216, 8, 91749
 [node name="PlayerPrefab" parent="TileMap" instance=ExtResource("2_rlicv")]
 position = Vector2(9, 58)
 
-[node name="Mail Box" parent="TileMap" node_paths=PackedStringArray("player") instance=ExtResource("3_dvl0e")]
+[node name="Mail Box" parent="TileMap" instance=ExtResource("3_dvl0e")]
 position = Vector2(-9, 111)
-player = NodePath("../PlayerPrefab")
 
 [node name="Scene Transition Zone" parent="TileMap" instance=ExtResource("4_sy4no")]
 position = Vector2(8, 35.87)
 scale = Vector2(0.16, 0.16)
 sceneName = 1
 
-[node name="Sign" parent="TileMap" node_paths=PackedStringArray("player") instance=ExtResource("5_vxr5g")]
+[node name="Sign" parent="TileMap" instance=ExtResource("5_vxr5g")]
 position = Vector2(30, 117)
 signText = "Home sweet home.
 Property of Lawrence"
-player = NodePath("../PlayerPrefab")
 
-[node name="Empty Bucket" parent="TileMap" node_paths=PackedStringArray("player") instance=ExtResource("5_vxr5g")]
+[node name="Empty Bucket" parent="TileMap" instance=ExtResource("5_vxr5g")]
 position = Vector2(37, 89)
 region_rect = Rect2(97.3169, 146.053, 13.5131, 12.9725)
 signText = "The bucket is empty"
-player = NodePath("../PlayerPrefab")
 
-[node name="Full Bucket" parent="TileMap" node_paths=PackedStringArray("player") instance=ExtResource("5_vxr5g")]
+[node name="Full Bucket" parent="TileMap" instance=ExtResource("5_vxr5g")]
 position = Vector2(55.515, 89)
 region_rect = Rect2(97.3752, 161.35, 13.7833, 13.5131)
 signText = "The bucket is full
 "
-player = NodePath("../PlayerPrefab")
 
-[node name="Can Crate" parent="TileMap" node_paths=PackedStringArray("player") instance=ExtResource("5_vxr5g")]
+[node name="Can Crate" parent="TileMap" instance=ExtResource("5_vxr5g")]
 position = Vector2(-42, 88)
 region_rect = Rect2(112.132, 112.161, 15.54, 16.0805)
 signText = "It's full of canned food."
-player = NodePath("../PlayerPrefab")

@@ -18,6 +18,7 @@ config/icon="res://Sprites/icon.svg"
 
 SceneManager="*res://Imported Assets I made/SceneManager/SceneManager.tscn"
 PopupManager="*res://Prefabs/Items/Popup Box.tscn"
+LoadingScreen="*res://Prefabs/LoadingScreen.tscn"
 
 [display]
 
