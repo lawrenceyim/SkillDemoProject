@@ -1,4 +1,5 @@
 using Godot;
+
 public partial class Player : CharacterBody2D, IDamageable {
 	[Export] private CharacterBody2D characterBody2D;
 	[Export] private PlayerAnimation playerAnimation;
@@ -34,9 +35,24 @@ public partial class Player : CharacterBody2D, IDamageable {
 		degrees -= 90;
 		rayCast2D.Rotation = degrees;
 		rayCast2D.ForceRaycastUpdate();
-		CollisionObject2D target = (CollisionObject2D) rayCast2D.GetCollider();
-		(target?.GetParent() as IInteractable)?.InteractWith();
-		playerMovement.MoveByVector2(new Vector2(0, 0));
+		GodotObject target = rayCast2D.GetCollider();
+		if (target is CollisionObject2D collisionObject2D) {
+			if (collisionObject2D.GetParent() is IInteractable parent) {
+				parent.InteractWith();
+				playerMovement.MoveByVector2(new Vector2(0, 0));
+			}
+		} else if (target is TileMap tileMap) {
+			Vector2 collisionPoint = rayCast2D.GetCollisionPoint();
+			Vector2I tileCoords = tileMap.LocalToMap(collisionPoint);
+			TileData tileData = tileMap.GetCellTileData(4, tileCoords);
+
+			if ((bool) tileData?.GetCustomDataByLayerId(0)) {
+				GD.Print("IS WATER");
+			} else {
+				GD.Print("IS NOT WATER"); 
+			}
+		}
+
 	}
 
 

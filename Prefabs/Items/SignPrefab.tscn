@@ -10,6 +10,8 @@ size = Vector2(16, 16)
 size = Vector2(16, 16)
 
 [node name="Original Sprite" type="Sprite2D"]
+z_index = 1
+y_sort_enabled = true
 texture = ExtResource("4_d1gg3")
 region_enabled = true
 region_rect = Rect2(112.728, 161.403, 15.234, 14.2448)
@@ -23,7 +25,7 @@ position = Vector2(2.08165e-12, 2.08165e-12)
 shape = SubResource("RectangleShape2D_pdts4")
 
 [node name="Interaction Area" type="Area2D" parent="."]
-collision_layer = 2
+collision_layer = 4
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interaction Area"]

@@ -15,7 +15,7 @@ y_sort_enabled = true
 script = ExtResource("1_boamt")
 
 [node name="Interaction Area" type="Area2D" parent="."]
-collision_layer = 2
+collision_layer = 4
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interaction Area"]
@@ -23,6 +23,8 @@ position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_ljbit")
 
 [node name="Original Sprite" type="Sprite2D" parent="."]
+z_index = 1
+y_sort_enabled = true
 texture = ExtResource("2_kde3b")
 region_enabled = true
 region_rect = Rect2(129.862, 170.998, 13.7277, 20.5398)
