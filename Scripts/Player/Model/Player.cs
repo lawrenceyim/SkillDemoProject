@@ -13,7 +13,7 @@ public partial class Player : CharacterBody2D, IDamageable {
 	private Vector2 lastMovementVector = new Vector2(0, 0);
 
 	public override void _Ready() {
-		debugLine.Visible = true;
+		debugLine.Visible = false;
 		foreach (HurtBox hurtBox in hurtBoxes) {
 			hurtBox.Damaged += TakeDamage;
 		}
@@ -46,12 +46,10 @@ public partial class Player : CharacterBody2D, IDamageable {
 		} else if (target is TileMap tileMap) {
 			Vector2 collisionPoint = rayCast2D.GetCollisionPoint() - rayCast2D.GetCollisionNormal();
 			Vector2I tileCoords = tileMap.LocalToMap(collisionPoint);
-			TileData tileData = tileMap.GetCellTileData(4, tileCoords);
+			TileData tileData = tileMap.GetCellTileData(1, tileCoords);
 			GD.Print(collisionPoint + " " + tileCoords + " " + tileData);
 			if ((bool) tileData?.GetCustomDataByLayerId(0)) {
 				GD.Print("IS WATER");
-			} else {
-				GD.Print("IS NOT WATER"); 
 			}
 		}
 
