@@ -20,12 +20,27 @@ playerInputHandler = NodePath("Input Handler")
 playerMovement = NodePath("Player Movement")
 animatedSprite2D = NodePath("AnimatedSprite2D")
 hurtBoxes = [NodePath("Area2D - HurtBox")]
-rayCast2D = NodePath("RayCast2D")
-debugLine = NodePath("Line2D")
+rayCast2D = NodePath("AnimatedSprite2D/RayCast2D")
+debugLine = NodePath("AnimatedSprite2D/Line2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -8)
 sprite_frames = ExtResource("3_7if2a")
 animation = &"WALKING_UP"
+
+[node name="RayCast2D" type="RayCast2D" parent="AnimatedSprite2D"]
+position = Vector2(0, 5)
+target_position = Vector2(15, 0)
+collision_mask = 4
+collide_with_areas = true
+
+[node name="Camera2D" type="Camera2D" parent="AnimatedSprite2D"]
+
+[node name="Line2D" type="Line2D" parent="AnimatedSprite2D"]
+position = Vector2(0, 5)
+points = PackedVector2Array(0, 0, 15, 0)
+width = 1.0
+default_color = Color(0.961399, 0, 0.378755, 1)
 
 [node name="Input Handler" type="Node" parent="."]
 script = ExtResource("3_00uuw")
@@ -36,24 +51,14 @@ script = ExtResource("2_2fw0d")
 [node name="Player Movement" type="Node" parent="."]
 script = ExtResource("5_ib1st")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 5)
+position = Vector2(0, -3)
 shape = SubResource("CircleShape2D_glkr3")
 
 [node name="Area2D - HurtBox" parent="." instance=ExtResource("6_eae27")]
+position = Vector2(0, -5.13)
 
-[node name="RayCast2D" type="RayCast2D" parent="."]
-position = Vector2(0, 5)
-target_position = Vector2(15, 0)
-collision_mask = 4
-collide_with_areas = true
-
-[node name="Line2D" type="Line2D" parent="."]
-position = Vector2(0, 5)
-points = PackedVector2Array(0, 0, 15, 0)
-width = 1.0
-default_color = Color(0.961399, 0, 0.378755, 1)
+[node name="CollisionShape2D" parent="Area2D - HurtBox" index="0"]
+position = Vector2(0, -2.87)
 
 [editable path="Area2D - HurtBox"]

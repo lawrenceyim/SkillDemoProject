@@ -4920,7 +4920,7 @@ position = Vector2(-42, 88)
 region_rect = Rect2(112.132, 112.161, 15.54, 16.0805)
 signText = "It's full of canned food."
 
-[node name="Original Sprite" parent="." instance=ExtResource("5_vxr5g")]
-position = Vector2(28, 121)
+[node name="Original Sprite" parent="TileMap" instance=ExtResource("5_vxr5g")]
+position = Vector2(31, 121)
 signText = "Home Sweet Home
 Property of June"

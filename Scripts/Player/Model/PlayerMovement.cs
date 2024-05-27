@@ -2,7 +2,7 @@ using Godot;
 public partial class PlayerMovement : Node {
 	private CharacterBody2D characterBody2D;
 	private PlayerAnimation playerAnimation;
-	private float movementSpeed = 50;
+	private float movementSpeed = 100;
 	private Vector2 movementVector = new Vector2(0, 0);
 
 	public override void _Ready() {

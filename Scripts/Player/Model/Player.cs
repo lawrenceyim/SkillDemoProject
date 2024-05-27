@@ -44,10 +44,10 @@ public partial class Player : CharacterBody2D, IDamageable {
 				playerMovement.MoveByVector2(new Vector2(0, 0));
 			}
 		} else if (target is TileMap tileMap) {
-			Vector2 collisionPoint = rayCast2D.GetCollisionPoint();
+			Vector2 collisionPoint = rayCast2D.GetCollisionPoint() - rayCast2D.GetCollisionNormal();
 			Vector2I tileCoords = tileMap.LocalToMap(collisionPoint);
 			TileData tileData = tileMap.GetCellTileData(4, tileCoords);
-
+			GD.Print(collisionPoint + " " + tileCoords + " " + tileData);
 			if ((bool) tileData?.GetCustomDataByLayerId(0)) {
 				GD.Print("IS WATER");
 			} else {
