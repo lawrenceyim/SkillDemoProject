@@ -8,10 +8,12 @@ public partial class Player : CharacterBody2D, IDamageable {
 	[Export] private AnimatedSprite2D animatedSprite2D;
 	[Export] private HurtBox[] hurtBoxes;
 	[Export] private RayCast2D rayCast2D;
+	[Export] private Line2D debugLine;
 	[Export] private int health = 10; // Probably should make a separate Health class
 	private Vector2 lastMovementVector = new Vector2(0, 0);
 
 	public override void _Ready() {
+		debugLine.Visible = true;
 		foreach (HurtBox hurtBox in hurtBoxes) {
 			hurtBox.Damaged += TakeDamage;
 		}
@@ -31,9 +33,9 @@ public partial class Player : CharacterBody2D, IDamageable {
 	}
 
 	public void RaycastForInteractable() {
-		float degrees = Mathf.RadToDeg(lastMovementVector.Angle());
-		degrees -= 90;
+		float degrees = lastMovementVector.Angle();
 		rayCast2D.Rotation = degrees;
+		debugLine.Rotation = degrees;
 		rayCast2D.ForceRaycastUpdate();
 		GodotObject target = rayCast2D.GetCollider();
 		if (target is CollisionObject2D collisionObject2D) {

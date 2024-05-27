@@ -10,7 +10,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_glkr3"]
 radius = 4.0
 
-[node name="PlayerPrefab" type="CharacterBody2D" node_paths=PackedStringArray("characterBody2D", "playerAnimation", "playerInputHandler", "playerMovement", "animatedSprite2D", "hurtBoxes", "rayCast2D")]
+[node name="PlayerPrefab" type="CharacterBody2D" node_paths=PackedStringArray("characterBody2D", "playerAnimation", "playerInputHandler", "playerMovement", "animatedSprite2D", "hurtBoxes", "rayCast2D", "debugLine")]
 z_index = 1
 y_sort_enabled = true
 script = ExtResource("1_4wy47")
@@ -21,6 +21,7 @@ playerMovement = NodePath("Player Movement")
 animatedSprite2D = NodePath("AnimatedSprite2D")
 hurtBoxes = [NodePath("Area2D - HurtBox")]
 rayCast2D = NodePath("RayCast2D")
+debugLine = NodePath("Line2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("3_7if2a")
@@ -45,8 +46,14 @@ shape = SubResource("CircleShape2D_glkr3")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 position = Vector2(0, 5)
-target_position = Vector2(2.08165e-12, 15)
+target_position = Vector2(15, 0)
 collision_mask = 4
 collide_with_areas = true
+
+[node name="Line2D" type="Line2D" parent="."]
+position = Vector2(0, 5)
+points = PackedVector2Array(0, 0, 15, 0)
+width = 1.0
+default_color = Color(0.961399, 0, 0.378755, 1)
 
 [editable path="Area2D - HurtBox"]
