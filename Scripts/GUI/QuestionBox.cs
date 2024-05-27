@@ -10,15 +10,15 @@ public partial class QuestionBox : CanvasLayer {
 	[Export] private PackedScene buttonPrefab;
 	[Export] private VBoxContainer vBoxContainer;
 	private List<QuestionResponseButton> buttons = new List<QuestionResponseButton>();
-    private QuestionNode questionNode;
+	private QuestionNode questionNode;
 
 	public override void _Ready() {
 		HideQuestionBox();
 	}
 
 	public void AddQuestionAndResponses(object sender, string message, List<string> responses) {
-        questionNode = (QuestionNode) sender;
-        QuestionEventOccurring?.Invoke(this, true);
+		questionNode = (QuestionNode) sender;
+		QuestionEventOccurring?.Invoke(this, true);
 		questionLabel.Text = message;
 		foreach (string response in responses) {
 			AddButton(response);
@@ -37,9 +37,9 @@ public partial class QuestionBox : CanvasLayer {
 	public void ButtonPressed(object sender, int index) {
 		QuestionEventOccurring?.Invoke(this, false);
 		ClearButtons();
-        HideQuestionBox();
-        questionNode.ReceivePlayerResponse(index);
-    }
+		HideQuestionBox();
+		questionNode.ReceivePlayerResponse(index);
+	}
 
 	public void DisplayQuestionBox() {
 		Visible = true;
