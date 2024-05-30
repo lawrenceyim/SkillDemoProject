@@ -63,7 +63,7 @@ position = Vector2(0, -5.13)
 [node name="CollisionShape2D" parent="Area2D - HurtBox" index="0"]
 position = Vector2(0, -2.87)
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
+[node name="PointLight2D - Mask" type="PointLight2D" parent="."]
 position = Vector2(0, -0.5)
 scale = Vector2(12, 3)
 color = Color(1, 1, 1, 0)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cuy0rd60mdm36"]
+[gd_scene load_steps=12 format=3 uid="uid://cuy0rd60mdm36"]
 
 [ext_resource type="Texture2D" uid="uid://be77bw42sn5xq" path="res://Sprites/World of Solaria New Style DEMO.png" id="1_n3fxo"]
 [ext_resource type="Texture2D" uid="uid://dhvtj274nt17u" path="res://Sprites/SI_Grasslands_Summer.png" id="2_osne7"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://mhcka1iol2om" path="res://Prefabs/Items/MailBoxPrefab.tscn" id="3_6rmnj"]
 [ext_resource type="PackedScene" uid="uid://rpirkrc55ybd" path="res://Prefabs/SceneTransitionZone.tscn" id="4_sy4no"]
 [ext_resource type="PackedScene" uid="uid://dvxdkucw5ckgp" path="res://Prefabs/Items/SignPrefab.tscn" id="5_vxr5g"]
-[ext_resource type="PackedScene" uid="uid://bkjy8ysggdd6h" path="res://Prefabs/TallGrass.tscn" id="7_pilgq"]
 [ext_resource type="Texture2D" uid="uid://6r3kc5nmxhao" path="res://Sprites/pokemon spritesheet.png" id="8_8k2nq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m7xqi"]
@@ -4925,45 +4924,20 @@ Property of June"
 [node name="Mailbox" parent="TileMap" instance=ExtResource("3_6rmnj")]
 position = Vector2(-11, 117)
 
-[node name="Tallgrasses" type="Node2D" parent="TileMap"]
-y_sort_enabled = true
-position = Vector2(0, 168.34)
-
-[node name="Tall Grass" parent="TileMap/Tallgrasses" instance=ExtResource("7_pilgq")]
-
-[node name="Tall Grass2" parent="TileMap/Tallgrasses" instance=ExtResource("7_pilgq")]
-position = Vector2(16, 0)
-
-[node name="Tall Grass3" parent="TileMap/Tallgrasses" instance=ExtResource("7_pilgq")]
-position = Vector2(32, 0)
-
-[node name="Tall Grass4" parent="TileMap/Tallgrasses" instance=ExtResource("7_pilgq")]
-position = Vector2(0, 16)
-
-[node name="Tall Grass5" parent="TileMap/Tallgrasses" instance=ExtResource("7_pilgq")]
-position = Vector2(16, 16)
-
-[node name="Tall Grass6" parent="TileMap/Tallgrasses" instance=ExtResource("7_pilgq")]
-position = Vector2(32, 16)
-
 [node name="PlayerPrefab" parent="TileMap" instance=ExtResource("2_rlicv")]
 position = Vector2(7, 63)
 
-[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
-energy = 0.0
-
-[node name="PokemonSpritesheet" type="Sprite2D" parent="."]
+[node name="Tallgrass Background" type="Sprite2D" parent="."]
 light_mask = 2
 position = Vector2(-136, 238)
 texture = ExtResource("8_8k2nq")
 region_enabled = true
 region_rect = Rect2(8, 272, 200, 136)
 
-[node name="PokemonSpritesheet2" type="Sprite2D" parent="."]
-light_mask = 2
+[node name="Tallgrass Foreground" type="Sprite2D" parent="Tallgrass Background"]
+light_mask = 4
 z_index = 2
 material = SubResource("CanvasItemMaterial_hmpkr")
-position = Vector2(-136, 238)
 texture = ExtResource("8_8k2nq")
 region_enabled = true
 region_rect = Rect2(8, 272, 200, 136)
