@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bf212syf723j4"]
+[gd_scene load_steps=9 format=3 uid="uid://bf212syf723j4"]
 
 [ext_resource type="Script" path="res://Scripts/Player/Model/Player.cs" id="1_4wy47"]
 [ext_resource type="Script" path="res://Scripts/Player/View/PlayerAnimation.cs" id="2_2fw0d"]
@@ -9,6 +9,8 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_glkr3"]
 radius = 4.0
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_baq8a"]
 
 [node name="PlayerPrefab" type="CharacterBody2D" node_paths=PackedStringArray("characterBody2D", "playerAnimation", "playerInputHandler", "playerMovement", "animatedSprite2D", "hurtBoxes", "rayCast2D", "debugLine")]
 z_index = 1
@@ -60,5 +62,12 @@ position = Vector2(0, -5.13)
 
 [node name="CollisionShape2D" parent="Area2D - HurtBox" index="0"]
 position = Vector2(0, -2.87)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, -0.5)
+scale = Vector2(12, 3)
+color = Color(1, 1, 1, 0)
+range_item_cull_mask = 4
+texture = SubResource("PlaceholderTexture2D_baq8a")
 
 [editable path="Area2D - HurtBox"]
